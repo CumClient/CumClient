@@ -2,12 +2,11 @@ package com.example.examplemod.Etc;
 
 import com.example.examplemod.Etc.Base.ModuleBase;
 
-import java.util.Map;
-
 public class CheatConfigKey<T> {
     String key;
     T value;
     ModuleBase origin;
+
     public CheatConfigKey(String key, T value, ModuleBase origin) {
         this.key = key;
         this.value = value;
@@ -15,8 +14,9 @@ public class CheatConfigKey<T> {
     }
 
     public String getKey() {
-        return origin.getName()+"."+key;
+        return origin.getName() + "." + key;
     }
+
     public T getValue() {
         return value;
     }

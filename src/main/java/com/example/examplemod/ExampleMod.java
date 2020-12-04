@@ -1,6 +1,5 @@
 package com.example.examplemod;
 
-import com.example.examplemod.Etc.CheatConfigKey;
 import com.example.examplemod.Etc.CheatConfigManager;
 import com.example.examplemod.Etc.Mgr.CommandMGR;
 import com.example.examplemod.Etc.Mgr.EventMGR;
@@ -21,8 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -48,7 +45,7 @@ public class ExampleMod {
         new EventMGR(MinecraftForge.EVENT_BUS);
         MMN.get().forEach(moduleBase -> {
             moduleBase.register(config);
-            LOGGER.info("Successfully loaded module "+moduleBase.getName()+" into memory and made it ready to be enabled!");
+            LOGGER.info("Successfully loaded module " + moduleBase.getName() + " into memory and made it ready to be enabled!");
         });
     }
 

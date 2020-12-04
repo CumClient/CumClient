@@ -1,9 +1,6 @@
 package com.example.examplemod.Etc.Base;
 
-import com.example.examplemod.Etc.CheatConfigKey;
 import com.example.examplemod.Etc.CheatConfigManager;
-
-import java.util.List;
 
 public class ModuleBase {
     String name;
@@ -14,9 +11,12 @@ public class ModuleBase {
         this.name = name;
         this.description = description;
     }
-    public void register(CheatConfigManager config) {}
 
-    public void run() {}
+    public void register(CheatConfigManager config) {
+    }
+
+    public void run() {
+    }
 
     public final String getName() {
         return name;

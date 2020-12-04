@@ -7,8 +7,6 @@ import com.example.examplemod.ExampleMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.AxisAlignedBB;
 
-import java.util.List;
-
 public class Killaura extends ModuleBase {
     public Killaura() {
         super("Killaura", "Kills. A lot.");
@@ -17,10 +15,14 @@ public class Killaura extends ModuleBase {
     int rad = 6;
     int radDiv = rad / 2;
     int tick = 0;
+
     @Override
     public void run() {
         tick++;
-        if (tick > 400) {tick = 0;attack();}
+        if (tick > 400) {
+            tick = 0;
+            attack();
+        }
 
         super.run();
     }
@@ -28,14 +30,14 @@ public class Killaura extends ModuleBase {
     @Override
     public void register(CheatConfigManager config) {
 
-        config.addToConfig(new CheatConfigKey("range",6,this));
+        config.addToConfig(new CheatConfigKey("range", 6, this));
         super.register(config);
     }
 
     void attack() {
-        this.rad = Integer.parseInt(ExampleMod.config.getByName("range",this).getValue().toString());
+        this.rad = Integer.parseInt(ExampleMod.config.getByName("range", this).getValue().toString());
         this.radDiv = rad / 2;
-        try{
+        try {
             Minecraft.getInstance().player.getEntityWorld().getEntitiesInAABBexcluding(Minecraft.getInstance().player, new AxisAlignedBB(
                     Minecraft.getInstance().player.getPosX() - radDiv,
                     Minecraft.getInstance().player.getPosY() - radDiv,
@@ -44,8 +46,10 @@ public class Killaura extends ModuleBase {
                     Minecraft.getInstance().player.getPosY() + radDiv,
                     Minecraft.getInstance().player.getPosZ() + radDiv
             ), null).forEach(entity -> {
-                if (entity.canBeAttackedWithItem()) Minecraft.getInstance().playerController.attackEntity(Minecraft.getInstance().player, entity);
+                if (entity.canBeAttackedWithItem())
+                    Minecraft.getInstance().playerController.attackEntity(Minecraft.getInstance().player, entity);
             });
-        }catch(Exception ex) {}
+        } catch (Exception ex) {
+        }
     }
 }

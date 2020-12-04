@@ -36,7 +36,7 @@ public class MainMenuGUI extends Screen {
         if (mtp > 2.0) {
             mtpI = false;
         }
-        if(tick == 20 && mtp != 1.0 && !mtpI) mtp = 1.0;
+        if (tick == 20 && mtp != 1.0 && !mtpI) mtp = 1.0;
         tick++;
         if (tick > 255) {
             i++;
@@ -54,13 +54,13 @@ public class MainMenuGUI extends Screen {
         matrixStack.push();
         Minecraft.getInstance().textureManager.bindTexture(new ResourceLocation("cumclient", "bg.png"));
         blit(matrixStack, 0, 0, getBlitOffset(), this.width, this.height, this.width, this.height, this.height, this.width);
-        ImageButton imgb = new net.minecraft.client.gui.widget.button.ImageButton((this.width / 2)-(this.font.getStringWidth("NUT")*7/2),50,this.font.getStringWidth("NUT") * 7,12,0,0,0,new ResourceLocation("cumclient","btnbg.png"),(button)->{
+        ImageButton imgb = new net.minecraft.client.gui.widget.button.ImageButton((this.width / 2) - (this.font.getStringWidth("NUT") * 7 / 2), 50, this.font.getStringWidth("NUT") * 7, 12, 0, 0, 0, new ResourceLocation("cumclient", "btnbg.png"), (button) -> {
             mtpI = true;
         });
         this.addButton(imgb);
-        GL11.glScalef((float) (8*mtp), 1, 1);
-        this.font.drawString(matrixStack, "NUT", (float) ((this.width / 2 - (this.font.getStringWidth("NUT") / 2 * (8*mtp-1))) / (8*mtp)), 50, rgb);
-        GL11.glScalef((float) (0.125f/mtp), 1, 1);
+        GL11.glScalef((float) (8 * mtp), 1, 1);
+        this.font.drawString(matrixStack, "NUT", (float) ((this.width / 2 - (this.font.getStringWidth("NUT") / 2 * (8 * mtp - 1))) / (8 * mtp)), 50, rgb);
+        GL11.glScalef((float) (0.125f / mtp), 1, 1);
         this.font.drawString(matrixStack, "CLIENT", this.width / 2 - (this.font.getStringWidth("CLIENT") / 2), 50 + 11, rgb);
 
         this.font.drawString(matrixStack, cq, this.width / 2 - (this.font.getStringWidth(cq) / 2), 50 + 11 * 2, rgb);
