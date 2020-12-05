@@ -27,6 +27,13 @@ public class TriggerCommand extends CommandBase {
             ClientHelper.SendClientNotif("bruh that module just kinda doesnt exist");
             return;
         }
+        if (M.get().isEnabled()) {
+            ClientHelper.SendClientNotif("Disabled module");
+            M.get().onDisable();
+        } else {
+            ClientHelper.SendClientNotif("Enabled module");
+            M.get().onEnable();
+        }
         M.get().setEnabled(!M.get().isEnabled());
 
         super.run(args);

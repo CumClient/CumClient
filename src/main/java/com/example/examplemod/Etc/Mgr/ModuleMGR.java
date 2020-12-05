@@ -1,10 +1,7 @@
 package com.example.examplemod.Etc.Mgr;
 
 import com.example.examplemod.Etc.Base.ModuleBase;
-import com.example.examplemod.Modules.AutoWalk;
-import com.example.examplemod.Modules.Killaura;
-import com.example.examplemod.Modules.Nuker;
-import com.example.examplemod.Modules.Scaffold;
+import com.example.examplemod.Modules.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +15,8 @@ public class ModuleMGR {
         v.add(new Nuker());
         v.add(new AutoWalk());
         v.add(new Scaffold());
+        v.add(new NoFall());
+
     }
 
     public List<ModuleBase> get() {

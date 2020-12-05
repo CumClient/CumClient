@@ -11,6 +11,11 @@ public class ModuleBase {
         this.name = name;
         this.description = description;
     }
+    public void onDisable() {
+    }
+
+    public void onEnable() {
+    }
 
     public void register(CheatConfigManager config) {
     }
