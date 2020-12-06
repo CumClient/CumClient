@@ -16,7 +16,7 @@ public class ModuleMGR {
         v.add(new AutoWalk());
         v.add(new Scaffold());
         v.add(new NoFall());
-
+        v.add(new Tunnel());
     }
 
     public List<ModuleBase> get() {

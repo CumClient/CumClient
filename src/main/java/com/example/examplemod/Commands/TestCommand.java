@@ -12,7 +12,7 @@ public class TestCommand extends CommandBase {
 
     @Override
     public void run(List<String> args) {
-        ClientHelper.SendClientNotif("GAY");
+
         super.run(args);
     }
 }
