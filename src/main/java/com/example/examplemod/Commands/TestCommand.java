@@ -1,7 +1,6 @@
 package com.example.examplemod.Commands;
 
 import com.example.examplemod.Etc.Base.CommandBase;
-import com.example.examplemod.Etc.Helper.ClientHelper;
 
 import java.util.List;
 

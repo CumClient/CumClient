@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("cumclient")
 public class ExampleMod {
+    public static int tick;
     public static ModuleMGR MMN = new ModuleMGR();
     public static CommandMGR CMN = new CommandMGR();
     public static CheatConfigManager config = new CheatConfigManager();

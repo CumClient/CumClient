@@ -5,17 +5,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.play.client.CPlayerDiggingPacket;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.vector.Vector2f;
 import net.minecraft.util.math.vector.Vector3d;
 
 public class Tunnel extends ModuleBase {
     public Tunnel() {
-        super("Tunnel","Makes a tunnel just for you");
+        super("Tunnel", "Makes a tunnel just for you");
     }
 
-    int r(double i, int v){
-        return (int) (Math.round(i/v) * v);
+    int r(double i, int v) {
+        return (int) (Math.round(i / v) * v);
     }
 
     @Override
@@ -33,16 +32,16 @@ public class Tunnel extends ModuleBase {
 
         double pitch = c.y;
 
-        Minecraft.getInstance().player.setPositionAndRotation(x1,Minecraft.getInstance().player.getPosY(),z,r((int)pitch,90),0);
+        Minecraft.getInstance().player.setPositionAndRotation(x1, Minecraft.getInstance().player.getPosY(), z, r((int) pitch, 90), 0);
         Minecraft.getInstance().gameSettings.keyBindForward.setPressed(true);
         Vector3d a = Minecraft.getInstance().player.getLookVec();
         BlockPos p = Minecraft.getInstance().player.getPosition();
-        for(int x = 0;x<2;x++) {
-            p = p.add(a.x,a.y,a.z);
-            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.START_DESTROY_BLOCK,p, Direction.UP));
-            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.STOP_DESTROY_BLOCK,p,Direction.UP));
-            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.START_DESTROY_BLOCK,p.add(0,1,0),Direction.UP));
-            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.STOP_DESTROY_BLOCK,p.add(0,1,0),Direction.UP));
+        for (int x = 0; x < 2; x++) {
+            p = p.add(a.x, a.y, a.z);
+            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.START_DESTROY_BLOCK, p, Direction.UP));
+            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.STOP_DESTROY_BLOCK, p, Direction.UP));
+            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.START_DESTROY_BLOCK, p.add(0, 1, 0), Direction.UP));
+            Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerDiggingPacket(CPlayerDiggingPacket.Action.STOP_DESTROY_BLOCK, p.add(0, 1, 0), Direction.UP));
         }
 
         super.run();

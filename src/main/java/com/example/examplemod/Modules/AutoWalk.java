@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 
 public class AutoWalk extends ModuleBase {
     public AutoWalk() {
-        super("AutoWalk","Automatically walks 4 u");
+        super("AutoWalk", "Automatically walks 4 u");
     }
 
     @Override

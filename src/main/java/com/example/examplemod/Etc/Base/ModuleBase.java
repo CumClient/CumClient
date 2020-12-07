@@ -11,6 +11,7 @@ public class ModuleBase {
         this.name = name;
         this.description = description;
     }
+
     public void onDisable() {
     }
 
