@@ -19,6 +19,8 @@ public class Scaffold extends ModuleBase {
         BlockPos b = new BlockPos(Minecraft.getInstance().player.getPosX(), Minecraft.getInstance().player.getPosY() - 1, Minecraft.getInstance().player.getPosZ());
         Vector3d a = Minecraft.getInstance().player.getLookVec();
         Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerTryUseItemOnBlockPacket(Hand.MAIN_HAND, new BlockRayTraceResult(a, Direction.getFacingFromVector(a.x, a.y, a.z), b, false)));
+        Minecraft.getInstance().player.world.sendPacketToServer(new CPlayerTryUseItemOnBlockPacket(Hand.OFF_HAND, new BlockRayTraceResult(a, Direction.getFacingFromVector(a.x, a.y, a.z), b, false)));
+
         super.run();
     }
 }

@@ -3,6 +3,7 @@ package com.example.examplemod.Etc.Events;
 import com.example.examplemod.Etc.Base.CommandBase;
 import com.example.examplemod.Etc.Helper.ClientHelper;
 import com.example.examplemod.Etc.Mgr.CommandMGR;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -15,7 +16,9 @@ public class ChatEV {
     @SubscribeEvent
     public void ClientChatEvent(ClientChatEvent ev) {
         if (ev.getMessage().startsWith(".")) {
+
             ev.setCanceled(true);
+            Minecraft.getInstance().ingameGUI.getChatGUI().addToSentMessages(ev.getMessage());
             String[] args = ev.getMessage().substring(1).split(" +");
             List<String> argsc = new ArrayList<>();
             String cmd = args[0].toLowerCase();

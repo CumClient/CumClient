@@ -20,6 +20,8 @@ public class ModuleMGR {
         v.add(new Tunnel());
         v.add(new PlayerInfo_EXT());
         v.add(new EntityESP_EXT());
+        v.add(new Fly());
+        v.add(new AutoTool());
     }
 
     public ModuleBase getModuleByName(String n) {
