@@ -2,6 +2,7 @@ package com.example.examplemod;
 
 import com.example.examplemod.Etc.Base.ModuleBase;
 import com.example.examplemod.Etc.CheatConfigManager;
+import com.example.examplemod.Etc.ControllerServer.HTTPControllerServerMGR;
 import com.example.examplemod.Etc.KeyBindHelper;
 import com.example.examplemod.Etc.Mgr.CommandMGR;
 import com.example.examplemod.Etc.Mgr.EventMGR;
@@ -53,6 +54,14 @@ public class ExampleMod {
             moduleBase.register(config);
             LOGGER.info("Successfully loaded module " + moduleBase.getName() + " into memory and made it ready to be enabled!");
         });
+        Thread srvThread = new Thread(()->{
+            try {
+                new HTTPControllerServerMGR();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        },"Controller thread");
+        srvThread.run();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
