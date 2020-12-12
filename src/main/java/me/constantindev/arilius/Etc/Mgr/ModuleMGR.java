@@ -22,6 +22,9 @@ public class ModuleMGR {
         v.add(new EntityESP_EXT());
         v.add(new Fly());
         v.add(new AutoTool());
+        v.add(new Spammer());
+        v.add(new MoonGravity());
+        v.add(new Jesus());
     }
 
     public ModuleBase getModuleByName(String n) {

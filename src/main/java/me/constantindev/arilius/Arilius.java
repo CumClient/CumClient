@@ -9,6 +9,9 @@ import me.constantindev.arilius.Etc.Mgr.EventMGR;
 import me.constantindev.arilius.Etc.Mgr.ModuleMGR;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourcePackType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,6 +26,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -38,7 +42,7 @@ public class Arilius {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public Arilius() {
+    public Arilius() throws IOException {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -62,6 +66,9 @@ public class Arilius {
             }
         }, "Controller thread");
         srvThread.run();
+        Minecraft.getInstance().getMainWindow().setWindowIcon(
+                Minecraft.getInstance().getPackFinder().getVanillaPack().getResourceStream(ResourcePackType.CLIENT_RESOURCES,new ResourceLocation("arilius","icon.png"))
+                , Minecraft.getInstance().getPackFinder().getVanillaPack().getResourceStream(ResourcePackType.CLIENT_RESOURCES,new ResourceLocation("arilius","icon.png")));
     }
 
     private void setup(final FMLCommonSetupEvent event) {

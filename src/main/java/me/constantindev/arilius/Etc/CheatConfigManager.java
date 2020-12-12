@@ -12,7 +12,9 @@ public class CheatConfigManager {
     public void addToConfig(CheatConfigKey v) {
         c.add(v);
     }
-
+    public List<CheatConfigKey> getAll() {
+        return c;
+    }
     public CheatConfigKey getByName(String name, ModuleBase origin) {
         AtomicReference<CheatConfigKey> ref = new AtomicReference<>(null);
         c.forEach(cheatConfigKey -> {

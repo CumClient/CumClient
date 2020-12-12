@@ -14,12 +14,7 @@ public class AutoTool extends ModuleBase {
 
     @Override
     public void run() {
-        tick++;
-
-        if (tick > 20) {
-            tick = 0;
-            ClientHelper.SelectFittingTool(((BlockRayTraceResult) Minecraft.getInstance().objectMouseOver).getPos());
-        }
+        if (Minecraft.getInstance().playerController.getIsHittingBlock()) ClientHelper.SelectFittingTool(((BlockRayTraceResult) Minecraft.getInstance().objectMouseOver).getPos());
 
         super.run();
     }

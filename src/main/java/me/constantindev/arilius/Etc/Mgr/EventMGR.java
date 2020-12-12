@@ -1,9 +1,6 @@
 package me.constantindev.arilius.Etc.Mgr;
 
-import me.constantindev.arilius.Etc.Events.ChatEV;
-import me.constantindev.arilius.Etc.Events.EntityESPEV;
-import me.constantindev.arilius.Etc.Events.MainGUIEV;
-import me.constantindev.arilius.Etc.Events.PlayerInfoEV;
+import me.constantindev.arilius.Etc.Events.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class EventMGR {

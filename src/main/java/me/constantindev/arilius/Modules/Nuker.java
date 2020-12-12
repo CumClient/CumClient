@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class Nuker extends ModuleBase {
     public Nuker() {
-        super("Nuker", "brrrrr");
+        super("Nuker", "Breaks blocks fast. Note: works best with any level of haste.");
     }
 
     int rad = 6;

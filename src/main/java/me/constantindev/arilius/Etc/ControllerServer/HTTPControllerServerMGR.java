@@ -18,6 +18,8 @@ public class HTTPControllerServerMGR {
         srv.createContext("/info", new Info());
         srv.createContext("/enableM", new EnableM());
         srv.createContext("/disableM", new DisableM());
+        srv.createContext("/getConfig",new GetConfig());
+        srv.createContext("/setConfig",new SetConfig());
         srv.setExecutor(null);
         srv.start();
     }
