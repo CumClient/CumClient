@@ -9,7 +9,7 @@ public class HTTPControllerServerMGR {
     HttpServer srv;
 
     public HTTPControllerServerMGR() throws Exception {
-        srv = HttpServer.create(new InetSocketAddress(1337), 0);
+        srv = HttpServer.create(new InetSocketAddress(5384), 0);
         srv.createContext("/", new Main());
         srv.createContext("/playerinfo", new GetInfo());
         srv.createContext("/setpos", new SetPos());
