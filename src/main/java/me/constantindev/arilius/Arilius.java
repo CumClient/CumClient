@@ -62,10 +62,10 @@ public class Arilius {
             try {
                 new HTTPControllerServerMGR();
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }, "Controller thread");
-        srvThread.run();
+        srvThread.start();
         Minecraft.getInstance().getMainWindow().setWindowIcon(
                 Minecraft.getInstance().getPackFinder().getVanillaPack().getResourceStream(ResourcePackType.CLIENT_RESOURCES,new ResourceLocation("arilius","icon.png"))
                 , Minecraft.getInstance().getPackFinder().getVanillaPack().getResourceStream(ResourcePackType.CLIENT_RESOURCES,new ResourceLocation("arilius","icon.png")));
